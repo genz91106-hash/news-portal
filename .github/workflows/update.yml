@@ -1,0 +1,37 @@
+name: update
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+    - cron: "0 0 * * *"
+    - cron: "0 16 * * *"
+  workflow_dispatch:
+    inputs:
+      brief:
+        description: "Make a brief now (morning / night / none)"
+        default: "none"
+permissions:
+  contents: write
+concurrency:
+  group: update
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - run: node scripts/fetch.mjs
+      - name: Brief
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          B="${{ github.event.inputs.brief }}"
+          [ "${{ github.event.schedule }}" = "0 0 * * *" ] && B=morning
+          [ "${{ github.event.schedule }}" = "0 16 * * *" ] && B=night
+          if [ "$B" = "morning" ] || [ "$B" = "night" ]; then node scripts/summarize.mjs $B || true; fi
+      - name: Save
+        run: |
+          git config user.name "news-bot"; git config user.email "bot@users.noreply.github.com"
+          git add data
+          git diff --cached --quiet || (git commit -m "update" && git pull --rebase && git push)
