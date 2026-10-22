@@ -3,70 +3,118 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>World AI & Business News</title>
+<title>Admission & World News</title>
 <style>
-:root{--bg:#f6f6f3;--card:#fff;--fg:#1d1d1b;--mut:#6b6b66;--line:#e3e3dd;--acc:#1d6fd6;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141413;--card:#1f1f1d;--fg:#eeeeea;--mut:#9a9a94;--line:#33332f;--acc:#6aa8ff}}
-:root[data-theme="dark"]{--bg:#141413;--card:#1f1f1d;--fg:#eeeeea;--mut:#9a9a94;--line:#33332f;--acc:#6aa8ff}
+:root{--bg:#f3f4f8;--card:#fff;--fg:#1b1d2a;--mut:#6a6f85;--line:#e4e6ee;--acc:#5b5bf0;--sh:0 2px 10px rgba(30,35,70,.07);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0f16;--card:#181a25;--fg:#ecedf5;--mut:#9396ab;--line:#272a3a;--acc:#8b8bff;--sh:none}}
+:root[data-theme="dark"]{--bg:#0e0f16;--card:#181a25;--fg:#ecedf5;--mut:#9396ab;--line:#272a3a;--acc:#8b8bff;--sh:none}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,'Noto Sans Bengali','Kalpurush',sans-serif;line-height:1.45}
-main{max-width:760px;margin:0 auto;padding:12px}
-h1{font-size:20px;margin:6px 0}
-.sub{color:var(--mut);font-size:13px;margin-bottom:10px}
-.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}
-.tabs button{border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:18px;padding:6px 13px;font-size:14px}
+.hero{background:linear-gradient(135deg,#4f46e5,#9333ea 60%,#ec4899);color:#fff;padding:18px 14px 22px;border-radius:0 0 22px 22px}
+.hero .in,main{max-width:780px;margin:0 auto}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+h1{font-size:21px;margin:0}
+.sub{opacity:.85;font-size:12.5px;margin-top:2px}
+.lang{background:rgba(255,255,255,.2);color:#fff;border:0;border-radius:16px;padding:7px 13px;font-size:13px;font-weight:600}
+.next{display:flex;gap:10px;overflow-x:auto;margin-top:14px;padding-bottom:4px;scrollbar-width:none}
+.nc{flex:0 0 78%;max-width:300px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);border-radius:14px;padding:11px 12px;backdrop-filter:blur(6px)}
+.nc small{opacity:.85;font-size:12px}.nc .t{font-weight:700;margin:2px 0 8px;font-size:15px}
+main{padding:12px}
+.tabs{position:sticky;top:0;z-index:5;display:flex;gap:7px;overflow-x:auto;padding:10px 0;background:var(--bg);scrollbar-width:none}
+.tabs button{flex:0 0 auto;border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:20px;padding:7px 14px;font-size:14px;box-shadow:var(--sh)}
 .tabs button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
-input{width:100%;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--fg);font-size:15px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;margin:10px 0}
-.card h2{font-size:16px;margin:0 0 6px}
-.brief h3{font-size:15px;margin:12px 0 4px}
-.brief ul{margin:4px 0;padding-left:20px}
-.brief li{margin:5px 0;font-size:14px}
-details summary{cursor:pointer;font-weight:600}
-.item a{color:var(--fg);text-decoration:none;font-weight:600}
-.item a:hover{color:var(--acc)}
-.meta{font-size:12px;color:var(--mut);margin-top:3px}
-.tag{display:inline-block;font-size:11px;border:1px solid var(--line);border-radius:6px;padding:0 6px;margin-right:6px}
-.snip{font-size:13px;color:var(--mut);margin-top:4px}
+input{width:100%;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--fg);font-size:15px;margin:2px 0 8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:13px;margin:10px 0;box-shadow:var(--sh)}
+.item{border-left:4px solid var(--c,#999)}
+.item a{color:var(--fg);text-decoration:none;font-weight:650;font-size:15.5px}.item a:hover{color:var(--acc)}
+.meta{font-size:12px;color:var(--mut);margin-top:5px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.tag{font-size:11px;font-weight:600;border-radius:8px;padding:1px 8px;color:#fff;background:var(--c,#999)}
+.snip{font-size:13px;color:var(--mut);margin-top:5px}
+details.brief summary{cursor:pointer;font-weight:650}
+.brief h3{font-size:15px;margin:14px 0 4px;color:var(--acc)}.brief ul{margin:4px 0;padding-left:20px}.brief li{margin:6px 0;font-size:14px}
+.uh{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+.uh b{font-size:16px}
+.chip{font-size:11px;border-radius:8px;padding:2px 8px;font-weight:600;white-space:nowrap}
+.confirmed{background:#d9f5e3;color:#0b6b32}.probable{background:#fff1cc;color:#8a5a00}.tba{background:#e8e9f0;color:#555}
+.cat{color:var(--mut);font-size:12px}
+.note{font-size:12px;color:var(--mut);margin-top:4px}
+.ev{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:9px 0;border-top:1px dashed var(--line);flex-wrap:wrap}
+.ev:first-of-type{margin-top:8px}
+.ev .l{font-size:14px;font-weight:600}.ev .d{font-size:12px;color:var(--mut)}
+.cd{display:flex;gap:5px}
+.cd span{min-width:42px;text-align:center;background:var(--bg);border-radius:9px;padding:4px 5px;font-size:10px;color:var(--mut)}
+.cd b{display:block;font-size:17px;color:var(--acc);font-variant-numeric:tabular-nums}
+.nc .cd span{background:rgba(255,255,255,.2);color:#fff}.nc .cd b{color:#fff;font-size:18px}
+.done{font-size:12px;color:var(--mut);font-weight:600}
+.warn{font-size:12px;color:var(--mut);text-align:center;margin:14px 0}
 </style>
 </head>
 <body>
+<div class="hero"><div class="in">
+ <div class="top"><div><h1 id="ttl"></h1><div class="sub" id="upd"></div></div><button class="lang" id="lb"></button></div>
+ <div class="next" id="next"></div>
+</div></div>
 <main>
-<h1>🌍 World AI & Business News</h1>
-<div class="sub" id="upd">Loading…</div>
-<div id="briefs"></div>
-<input id="q" placeholder="Search headlines…">
-<div class="tabs" id="tabs"></div>
-<div id="list"></div>
+ <div id="briefs"></div>
+ <div class="tabs" id="tabs"></div>
+ <input id="q" style="display:none">
+ <div id="list"></div>
+ <div class="warn" id="warn"></div>
 </main>
 <script>
-const TOPICS=['All','Bangladesh','AI','Business','Tech'];
-const L={en:{All:'All',Bangladesh:'Bangladesh',AI:'AI',Business:'Business',Tech:'Tech',title:'🌍 World AI & Business News',search:'Search headlines…',wait:'Waiting for first update…',upd:'Updated',auto:'auto-refreshes',none:'No news yet.',mor:'☀️ Morning Brief',ngt:'🌙 Night Brief',m:'m ago',h:'h ago',d:'d ago',btn:'বাংলা'},
-bn:{All:'সব',Bangladesh:'বাংলাদেশ',AI:'এআই',Business:'ব্যবসা',Tech:'প্রযুক্তি',title:'🌍 বিশ্বের এআই ও ব্যবসার খবর',search:'শিরোনাম খুঁজুন…',wait:'প্রথম আপডেটের অপেক্ষায়…',upd:'আপডেট',auto:'নিজে থেকেই রিফ্রেশ হয়',none:'এখনো কোনো খবর নেই।',mor:'☀️ সকালের সারাংশ',ngt:'🌙 রাতের সারাংশ',m:' মিনিট আগে',h:' ঘণ্টা আগে',d:' দিন আগে',btn:'English'}};
-let lang=localStorage.getItem('lang')||'en',topic='All',items=[],q='',news={},br={};
-const bd=n=>lang==='bn'?String(n).replace(/\d/g,x=>'০১২৩৪৫৬৭৮৯'[x]):n;
+const TOP=['Admission','All','Education','Scholarship','Bangladesh','AI','Business','Tech'];
+const COL={AI:'#8b5cf6',Business:'#10b981',Tech:'#3b82f6',Bangladesh:'#ef4444',Education:'#f59e0b',Scholarship:'#ec4899'};
+const L={en:{Admission:'🎓 Admission',All:'All',Education:'Education',Scholarship:'Scholarship',Bangladesh:'Bangladesh',AI:'AI',Business:'Business',Tech:'Tech',
+ title:'🎓 Admission & World News',search:'Search headlines…',wait:'Waiting for first update…',upd:'Updated',auto:'auto-refreshes',none:'No news yet.',
+ mor:'☀️ Morning Brief',ngt:'🌙 Night Brief',m:'m ago',h:'h ago',d:'d ago',btn:'বাংলা',in:'Starts in',left:'Closes in',done:'Finished',next:'Next up',
+ u:['days','hrs','min','sec'],confirmed:'Confirmed',probable:'Probable',tba:'Dates TBA',warn:'Dates come from news reports. Always confirm on the official university website.'},
+bn:{Admission:'🎓 ভর্তি',All:'সব',Education:'শিক্ষা',Scholarship:'স্কলারশিপ',Bangladesh:'বাংলাদেশ',AI:'এআই',Business:'ব্যবসা',Tech:'প্রযুক্তি',
+ title:'🎓 ভর্তি ও বিশ্বের খবর',search:'শিরোনাম খুঁজুন…',wait:'প্রথম আপডেটের অপেক্ষায়…',upd:'আপডেট',auto:'নিজে থেকেই রিফ্রেশ হয়',none:'এখনো কোনো খবর নেই।',
+ mor:'☀️ সকালের সারাংশ',ngt:'🌙 রাতের সারাংশ',m:' মিনিট আগে',h:' ঘণ্টা আগে',d:' দিন আগে',btn:'English',in:'শুরু হতে বাকি',left:'শেষ হতে বাকি',done:'শেষ',next:'পরের ইভেন্ট',
+ u:['দিন','ঘণ্টা','মিনিট','সেকেন্ড'],confirmed:'নিশ্চিত',probable:'সম্ভাব্য',tba:'তারিখ ঘোষণা হয়নি',warn:'তারিখগুলো সংবাদ থেকে নেওয়া। সবসময় বিশ্ববিদ্যালয়ের অফিসিয়াল ওয়েবসাইটে যাচাই করুন।'}};
+let lang=localStorage.getItem('lang')||'en',topic='Admission',items=[],q='',news={},br={},adm=[];
+const bd=n=>lang==='bn'?String(n).replace(/\d/g,x=>'০১২৩৪৫৬৭৮৯'[x]):String(n);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const ago=d=>{const m=Math.max(0,(Date.now()-new Date(d))/60000),t=L[lang];return bd(m<60?Math.floor(m)+t.m:m<1440?Math.floor(m/60)+t.h:Math.floor(m/1440)+t.d)};
+const fmt=(d,time)=>new Date(d).toLocaleString(lang==='bn'?'bn-BD':'en-GB',{timeZone:'Asia/Dhaka',day:'numeric',month:'short',year:'numeric',...(time?{hour:'numeric',minute:'2-digit'}:{})});
 function md(t){let h='',ul=false;const b=s=>s.replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');for(const raw of t.split('\n')){const l=esc(raw.trim());
  if(l.startsWith('## ')){if(ul){h+='</ul>';ul=false}h+='<h3>'+b(l.slice(3))+'</h3>'}
  else if(/^[-*] /.test(l)){if(!ul){h+='<ul>';ul=true}h+='<li>'+b(l.slice(2))+'</li>'}
- else if(l){if(ul){h+='</ul>';ul=false}h+='<p>'+b(l)+'</p>'}}
- return h+(ul?'</ul>':'')}
-function renderTabs(){document.getElementById('tabs').innerHTML=TOPICS.map(t=>`<button class="${t===topic?'on':''}" onclick="topic='${t}';renderTabs();renderList()">${L[lang][t]}</button>`).join('')+`<button onclick="lang=lang==='en'?'bn':'en';localStorage.setItem('lang',lang);renderAll()">${L[lang].btn}</button>`}
+ else if(l){if(ul){h+='</ul>';ul=false}h+='<p>'+b(l)+'</p>'}}return h+(ul?'</ul>':'')}
+/* ---- countdown ---- */
+function target(e){const n=Date.now(),s=+new Date(e.start),en=e.end?+new Date(e.end):0;if(n<s)return{t:s,k:'in'};if(en&&n<en)return{t:en,k:'left'};return null}
+function cdHtml(t){const x=Math.max(0,t-Date.now())/1000,v=[Math.floor(x/86400),Math.floor(x%86400/3600),Math.floor(x%3600/60),Math.floor(x%60)],u=L[lang].u;
+ return v.map((n,i)=>`<span><b>${bd(String(n).padStart(i?2:1,'0'))}</b>${u[i]}</span>`).join('')}
+function evRow(e){const tg=target(e),t=L[lang],lb=lang==='bn'&&e.labelBn?e.labelBn:e.label;
+ const when=fmt(e.start,e.time)+(e.end?' → '+fmt(e.end,e.time):'');
+ return `<div class="ev"><div><div class="l">${esc(lb)}</div><div class="d">${when}${tg?' · '+t[tg.k]:''}</div></div>${tg?`<div class="cd" data-t="${tg.t}">${cdHtml(tg.t)}</div>`:`<div class="done">${t.done}</div>`}</div>`}
+function renderAdm(){const t=L[lang];
+ const sorted=[...adm].sort((a,b)=>{const f=u=>Math.min(...u.events.map(e=>{const g=target(e);return g?g.t:Infinity}),Infinity);return f(a)-f(b)});
+ document.getElementById('list').innerHTML=sorted.map(u=>`<div class="card"><div class="uh"><div><b>${esc(lang==='bn'&&u.nameBn?u.nameBn:u.name)}</b><div class="cat">${esc(u.cat)}</div></div><span class="chip ${u.status}">${t[u.status]}</span></div>${u.note?`<div class="note">${esc(lang==='bn'&&u.noteBn?u.noteBn:u.note)}</div>`:''}${u.events.map(evRow).join('')}</div>`).join('')}
+function renderNext(){const t=L[lang],all=[];
+ adm.forEach(u=>u.events.forEach(e=>{const g=target(e);if(g)all.push({u,e,g})}));all.sort((a,b)=>a.g.t-b.g.t);
+ document.getElementById('next').innerHTML=all.slice(0,5).map(x=>`<div class="nc"><small>${t[x.g.k]} · ${esc(x.u.short||x.u.name.split(' (')[0])}</small><div class="t">${esc(lang==='bn'&&x.e.labelBn?x.e.labelBn:x.e.label)}</div><div class="cd" data-t="${x.g.t}">${cdHtml(x.g.t)}</div></div>`).join('')}
+setInterval(()=>{let re=false;document.querySelectorAll('.cd').forEach(el=>{const t=+el.dataset.t;if(t-Date.now()<=0)re=true;else el.innerHTML=cdHtml(t)});if(re){renderNext();if(topic==='Admission')renderAdm()}},1000);
+/* ---- news ---- */
+function renderTabs(){document.getElementById('tabs').innerHTML=TOP.map(x=>`<button class="${x===topic?'on':''}" onclick="topic='${x}';renderTabs();renderMain()">${L[lang][x]}</button>`).join('')}
 function renderList(){const f=items.filter(i=>(topic==='All'||i.topic===topic)&&(!q||(i.title+i.snippet).toLowerCase().includes(q)));
- document.getElementById('list').innerHTML=f.slice(0,150).map(i=>`<div class="card item"><a href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.title)}</a><div class="meta"><span class="tag">${esc(L[lang][i.topic]||i.topic)}</span>${esc(i.source)} · ${ago(i.date)}</div>${i.snippet?`<div class="snip">${esc(i.snippet.slice(0,160))}…</div>`:''}</div>`).join('')||`<div class="card">${L[lang].none}</div>`}
+ document.getElementById('list').innerHTML=f.slice(0,150).map(i=>`<div class="card item" style="--c:${COL[i.topic]||'#888'}"><a href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.title)}</a><div class="meta"><span class="tag">${esc(L[lang][i.topic]||i.topic)}</span><span>${esc(i.source)}</span><span>· ${ago(i.date)}</span></div>${i.snippet?`<div class="snip">${esc(i.snippet.slice(0,160))}…</div>`:''}</div>`).join('')||`<div class="card">${L[lang].none}</div>`}
+function renderMain(){const isA=topic==='Admission';document.getElementById('q').style.display=isA?'none':'block';isA?renderAdm():renderList()}
 function renderBriefs(){if(!br.m)return;const t=L[lang],pick=b=>(lang==='bn'&&b.text_bn)||b.text||b.text_bn||'';
  const c=(b,l)=>`<details class="card brief"><summary>${l}${b.generated?' · '+ago(b.generated):''}</summary>${md(pick(b))}</details>`;
  const newer=new Date(br.m.generated||0)>new Date(br.n.generated||0);
  document.getElementById('briefs').innerHTML=newer?c(br.m,t.mor)+c(br.n,t.ngt):c(br.n,t.ngt)+c(br.m,t.mor)}
-function renderAll(){const t=L[lang];document.documentElement.lang=lang;document.querySelector('h1').textContent=t.title;document.getElementById('q').placeholder=t.search;
- document.getElementById('upd').textContent=news.updated?t.upd+' '+ago(news.updated)+' · '+t.auto:t.wait;renderTabs();renderList();renderBriefs()}
+function renderAll(){const t=L[lang];document.documentElement.lang=lang;document.getElementById('ttl').textContent=t.title;document.getElementById('q').placeholder=t.search;
+ document.getElementById('lb').textContent=t.btn;document.getElementById('warn').textContent=t.warn;
+ document.getElementById('upd').textContent=news.updated?t.upd+' '+ago(news.updated)+' · '+t.auto:t.wait;renderTabs();renderNext();renderMain();renderBriefs()}
 async function j(p){const r=await fetch(p+'?t='+Date.now());return r.json()}
 async function load(){
  try{news=await j('data/news.json');items=news.items||[]}catch(e){}
- try{const [m,n]=await Promise.all([j('data/brief-morning.json'),j('data/brief-night.json')]);br={m,n}}catch(e){}
+ try{adm=await j('data/admissions.json')}catch(e){}
+ try{const[m,n]=await Promise.all([j('data/brief-morning.json'),j('data/brief-night.json')]);br={m,n}}catch(e){}
  renderAll()}
 document.getElementById('q').oninput=e=>{q=e.target.value.toLowerCase();renderList()};
+document.getElementById('lb').onclick=()=>{lang=lang==='en'?'bn':'en';localStorage.setItem('lang',lang);renderAll()};
 load();setInterval(load,180000);
 </script>
 </body>

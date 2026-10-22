@@ -1,0 +1,31 @@
+[
+{"id":"du","name":"University of Dhaka (DU)","nameBn":"ঢাকা বিশ্ববিদ্যালয়","cat":"Public","status":"confirmed","note":"Classes begin 28 Mar 2027","noteBn":"ক্লাস শুরু ২৮ মার্চ ২০২৭","events":[
+ {"label":"Online application","labelBn":"অনলাইনে আবেদন","start":"2026-11-11T12:00:00+06:00","end":"2026-11-25T23:59:00+06:00","time":true},
+ {"label":"IBA unit exam","labelBn":"আইবিএ ইউনিট পরীক্ষা","start":"2026-12-05T10:00:00+06:00","time":true},
+ {"label":"Science unit exam","labelBn":"বিজ্ঞান ইউনিট পরীক্ষা","start":"2026-12-12T11:00:00+06:00","time":true},
+ {"label":"Arts, Law & Social Science unit","labelBn":"কলা, আইন ও সামাজিক বিজ্ঞান ইউনিট","start":"2026-12-19T11:00:00+06:00","time":true},
+ {"label":"Fine Arts unit exam","labelBn":"চারুকলা ইউনিট পরীক্ষা","start":"2026-12-22T11:00:00+06:00","time":true},
+ {"label":"Business Studies unit exam","labelBn":"বাণিজ্য ইউনিট পরীক্ষা","start":"2026-12-26T11:00:00+06:00","time":true}]},
+{"id":"mist","name":"MIST","nameBn":"এমআইএসটি","cat":"Engineering","status":"confirmed","events":[
+ {"label":"Admission test day 1","labelBn":"ভর্তি পরীক্ষা (১ম দিন)","start":"2026-12-18T00:00:00+06:00","time":false},
+ {"label":"Admission test day 2","labelBn":"ভর্তি পরীক্ষা (২য় দিন)","start":"2026-12-19T00:00:00+06:00","time":false}]},
+{"id":"ku","name":"Khulna University (KU)","nameBn":"খুলনা বিশ্ববিদ্যালয়","cat":"Public","status":"confirmed","note":"Detailed schedule to be announced","noteBn":"বিস্তারিত সময়সূচি পরে জানানো হবে","events":[
+ {"label":"Admission test day 1","labelBn":"ভর্তি পরীক্ষা (১ম দিন)","start":"2026-12-17T00:00:00+06:00","time":false},
+ {"label":"Admission test day 2","labelBn":"ভর্তি পরীক্ষা (২য় দিন)","start":"2026-12-18T00:00:00+06:00","time":false}]},
+{"id":"jnu","name":"Jagannath University (JnU)","nameBn":"জগন্নাথ বিশ্ববিদ্যালয়","cat":"Public","status":"confirmed","events":[
+ {"label":"Admission tests begin","labelBn":"ভর্তি পরীক্ষা শুরু","start":"2027-01-01T00:00:00+06:00","time":false}]},
+{"id":"ru","name":"Rajshahi University (RU)","nameBn":"রাজশাহী বিশ্ববিদ্যালয়","cat":"Public","status":"confirmed","note":"Tests held in 7 divisional cities","noteBn":"সাতটি বিভাগীয় শহরে পরীক্ষা হবে","events":[
+ {"label":"Preliminary application","labelBn":"প্রাথমিক আবেদন","start":"2026-11-12T00:00:00+06:00","end":"2026-11-27T23:59:00+06:00","time":false},
+ {"label":"B unit exam","labelBn":"বি ইউনিট পরীক্ষা","start":"2027-01-08T00:00:00+06:00","time":false},
+ {"label":"C unit exam","labelBn":"সি ইউনিট পরীক্ষা","start":"2027-01-09T00:00:00+06:00","time":false},
+ {"label":"A unit exam","labelBn":"এ ইউনিট পরীক্ষা","start":"2027-01-16T00:00:00+06:00","time":false}]},
+{"id":"kuet","name":"KUET","nameBn":"কুয়েট","cat":"Engineering","status":"confirmed","note":"Held in Khulna, Dhaka and Rajshahi","noteBn":"খুলনা, ঢাকা ও রাজশাহীতে একযোগে","events":[
+ {"label":"First-year admission test","labelBn":"প্রথম বর্ষ ভর্তি পরীক্ষা","start":"2027-01-08T00:00:00+06:00","time":false}]},
+{"id":"ruet","name":"RUET","nameBn":"রুয়েট","cat":"Engineering","status":"probable","note":"Probable date; details to be announced","noteBn":"সম্ভাব্য তারিখ; বিস্তারিত পরে","events":[
+ {"label":"Admission test (probable)","labelBn":"ভর্তি পরীক্ষা (সম্ভাব্য)","start":"2027-01-14T00:00:00+06:00","time":false}]},
+{"id":"cu","name":"Chittagong University (CU)","nameBn":"চট্টগ্রাম বিশ্ববিদ্যালয়","cat":"Public","status":"confirmed","events":[
+ {"label":"Admission tests begin","labelBn":"ভর্তি পরীক্ষা শুরু","start":"2027-01-29T00:00:00+06:00","time":false}]},
+{"id":"gst","name":"GST Cluster (General, Science & Tech)","nameBn":"গুচ্ছ (GST) ভর্তি","cat":"Cluster","status":"tba","note":"2026-27 dates not announced yet","noteBn":"২০২৬-২৭ এর তারিখ এখনো ঘোষণা হয়নি","events":[]},
+{"id":"buet","name":"BUET","nameBn":"বুয়েট","cat":"Engineering","status":"tba","note":"2026-27 dates not announced yet","noteBn":"২০২৬-২৭ এর তারিখ এখনো ঘোষণা হয়নি","events":[]},
+{"id":"mbbs","name":"Medical (MBBS/BDS)","nameBn":"মেডিকেল (MBBS/BDS)","cat":"Medical","status":"tba","note":"2026-27 dates not announced yet","noteBn":"২০২৬-২৭ এর তারিখ এখনো ঘোষণা হয়নি","events":[]}
+]

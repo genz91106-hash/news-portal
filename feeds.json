@@ -80,5 +80,40 @@
   "topic": "Bangladesh",
   "lang": "bn",
   "url": "https://feeds.bbci.co.uk/bengali/rss.xml"
+ },
+ {
+  "name": "Education BD",
+  "topic": "Education",
+  "gn": true,
+  "url": "https://news.google.com/rss/search?q=Bangladesh%20university%20admission%20OR%20HSC%20OR%20SSC%20OR%20education%20ministry%20when%3A2d&hl=en-BD&gl=BD&ceid=BD:en"
+ },
+ {
+  "name": "শিক্ষা",
+  "topic": "Education",
+  "gn": true,
+  "lang": "bn",
+  "url": "https://news.google.com/rss/search?q=%E0%A6%AD%E0%A6%B0%E0%A7%8D%E0%A6%A4%E0%A6%BF%20%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE%20%E0%A6%AC%E0%A6%BF%E0%A6%B6%E0%A7%8D%E0%A6%AC%E0%A6%AC%E0%A6%BF%E0%A6%A6%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%B2%E0%A6%AF%E0%A6%BC%20OR%20%E0%A6%8F%E0%A6%87%E0%A6%9A%E0%A6%8F%E0%A6%B8%E0%A6%B8%E0%A6%BF%20OR%20%E0%A6%B6%E0%A6%BF%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE%20%E0%A6%AE%E0%A6%A8%E0%A7%8D%E0%A6%A4%E0%A7%8D%E0%A6%B0%E0%A6%A3%E0%A6%BE%E0%A6%B2%E0%A6%AF%E0%A6%BC%20when%3A2d&hl=bn&gl=BD&ceid=BD:bn"
+ },
+ {
+  "name": "Scholarship",
+  "topic": "Scholarship",
+  "gn": true,
+  "url": "https://news.google.com/rss/search?q=fully%20funded%20scholarship%20international%20students%20when%3A7d&hl=en&gl=US&ceid=US:en"
+ },
+ {
+  "name": "Scholarship 2",
+  "topic": "Scholarship",
+  "gn": true,
+  "url": "https://news.google.com/rss/search?q=Chevening%20OR%20Fulbright%20OR%20DAAD%20OR%20Erasmus%20OR%20MEXT%20OR%20CSC%20scholarship%202027%20when%3A14d&hl=en&gl=US&ceid=US:en"
+ },
+ {
+  "name": "Scholars4Dev",
+  "topic": "Scholarship",
+  "url": "https://www.scholars4dev.com/feed/"
+ },
+ {
+  "name": "Opportunity Desk",
+  "topic": "Scholarship",
+  "url": "https://opportunitydesk.org/feed/"
  }
 ]
