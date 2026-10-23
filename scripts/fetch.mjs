@@ -30,6 +30,6 @@ await Promise.all(feeds.map(async f => {
 }));
 const seen = new Set(), cutoff = Date.now() - 72*3600*1000;
 const items = all.filter(i => new Date(i.date) > cutoff && !seen.has(i.link) && seen.add(i.link))
-  .sort((a,b) => new Date(b.date) - new Date(a.date)).slice(0,700);
+  .sort((a,b) => new Date(b.date) - new Date(a.date)).slice(0,900);
 fs.writeFileSync('data/news.json', JSON.stringify({ updated: new Date().toISOString(), items }));
 console.log('saved', items.length);

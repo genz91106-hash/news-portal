@@ -115,5 +115,45 @@
   "name": "Opportunity Desk",
   "topic": "Scholarship",
   "url": "https://opportunitydesk.org/feed/"
+ },
+ {
+  "name": "World GK",
+  "topic": "IntlGK",
+  "gn": true,
+  "url": "https://news.google.com/rss/search?q=summit%20OR%20agreement%20OR%20appointed%20OR%20awarded%20OR%20record%20OR%20launched%20OR%20elected%20OR%20treaty%20world%20when%3A2d&hl=en&gl=US&ceid=US:en"
+ },
+ {
+  "name": "UN & Orgs",
+  "topic": "IntlGK",
+  "gn": true,
+  "url": "https://news.google.com/rss/search?q=United%20Nations%20OR%20WHO%20OR%20IMF%20OR%20%22World%20Bank%22%20OR%20NATO%20OR%20Nobel%20when%3A3d&hl=en&gl=US&ceid=US:en"
+ },
+ {
+  "name": "BBC World",
+  "topic": "IntlGK",
+  "url": "https://feeds.bbci.co.uk/news/world/rss.xml"
+ },
+ {
+  "name": "Al Jazeera",
+  "topic": "IntlGK",
+  "url": "https://www.aljazeera.com/xml/rss/all.xml"
+ },
+ {
+  "name": "UN News",
+  "topic": "IntlGK",
+  "url": "https://news.un.org/feed/subscribe/en/news/all/rss.xml"
+ },
+ {
+  "name": "Bangladesh GK",
+  "topic": "BDGK",
+  "gn": true,
+  "url": "https://news.google.com/rss/search?q=Bangladesh%20government%20OR%20parliament%20OR%20budget%20OR%20agreement%20OR%20appointed%20OR%20award%20OR%20record%20OR%20project%20when%3A2d&hl=en-BD&gl=BD&ceid=BD:en"
+ },
+ {
+  "name": "বাংলাদেশ GK",
+  "topic": "BDGK",
+  "gn": true,
+  "lang": "bn",
+  "url": "https://news.google.com/rss/search?q=%E0%A6%AC%E0%A6%BE%E0%A6%82%E0%A6%B2%E0%A6%BE%E0%A6%A6%E0%A7%87%E0%A6%B6%20%E0%A6%B8%E0%A6%B0%E0%A6%95%E0%A6%BE%E0%A6%B0%20OR%20%E0%A6%9A%E0%A7%81%E0%A6%95%E0%A7%8D%E0%A6%A4%E0%A6%BF%20OR%20%E0%A6%AA%E0%A7%81%E0%A6%B0%E0%A6%B8%E0%A7%8D%E0%A6%95%E0%A6%BE%E0%A6%B0%20OR%20%E0%A6%A8%E0%A6%BF%E0%A6%AF%E0%A6%BC%E0%A7%8B%E0%A6%97%20OR%20%E0%A6%B8%E0%A6%82%E0%A6%B8%E0%A6%A6%20OR%20%E0%A6%AA%E0%A7%8D%E0%A6%B0%E0%A6%95%E0%A6%B2%E0%A7%8D%E0%A6%AA%20when%3A2d&hl=bn&gl=BD&ceid=BD:bn"
  }
 ]

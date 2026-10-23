@@ -47,6 +47,7 @@ details.brief summary{cursor:pointer;font-weight:650}
 .cd b{display:block;font-size:17px;color:var(--acc);font-variant-numeric:tabular-nums}
 .nc .cd span{background:rgba(255,255,255,.2);color:#fff}.nc .cd b{color:#fff;font-size:18px}
 .done{font-size:12px;color:var(--mut);font-weight:600}
+.qa{padding:10px 0;border-top:1px dashed var(--line)}.q{font-weight:600;font-size:15px;margin-bottom:4px}.ans summary{cursor:pointer;color:var(--acc);font-size:13px;margin-top:6px}.a{margin-top:6px;padding:8px 10px;background:var(--bg);border-radius:10px;font-size:14px}.sec{font-size:15px;margin:18px 0 4px}
 .warn{font-size:12px;color:var(--mut);text-align:center;margin:14px 0}
 </style>
 </head>
@@ -63,17 +64,17 @@ details.brief summary{cursor:pointer;font-weight:650}
  <div class="warn" id="warn"></div>
 </main>
 <script>
-const TOP=['Admission','All','Education','Scholarship','Bangladesh','AI','Business','Tech'];
-const COL={AI:'#8b5cf6',Business:'#10b981',Tech:'#3b82f6',Bangladesh:'#ef4444',Education:'#f59e0b',Scholarship:'#ec4899'};
-const L={en:{Admission:'🎓 Admission',All:'All',Education:'Education',Scholarship:'Scholarship',Bangladesh:'Bangladesh',AI:'AI',Business:'Business',Tech:'Tech',
+const TOP=['Admission','IntlGK','NatGK','All','Education','Scholarship','Bangladesh','AI','Business','Tech'];
+const COL={AI:'#8b5cf6',Business:'#10b981',Tech:'#3b82f6',Bangladesh:'#ef4444',Education:'#f59e0b',Scholarship:'#ec4899',IntlGK:'#0ea5e9',BDGK:'#16a34a'};
+const L={en:{Admission:'🎓 Admission',All:'All',Education:'Education',Scholarship:'Scholarship',Bangladesh:'Bangladesh',AI:'AI',Business:'Business',Tech:'Tech',IntlGK:'🌍 International GK',NatGK:'🇧🇩 National GK',BDGK:'National GK',gkw:'AI-made quiz cards from daily news headlines. Verify before memorising.',gkn:'No GK cards yet. They appear after the next GK run.',cards:'cards',show:'Show answer',latest:'Latest headlines',
  title:'🎓 Admission & World News',search:'Search headlines…',wait:'Waiting for first update…',upd:'Updated',auto:'auto-refreshes',none:'No news yet.',
  mor:'☀️ Morning Brief',ngt:'🌙 Night Brief',m:'m ago',h:'h ago',d:'d ago',btn:'বাংলা',wa:'📲 WhatsApp',in:'Starts in',left:'Closes in',done:'Finished',next:'Next up',
  u:['days','hrs','min','sec'],confirmed:'Confirmed',probable:'Probable',tba:'Dates TBA',warn:'Dates come from news reports. Always confirm on the official university website.'},
-bn:{Admission:'🎓 ভর্তি',All:'সব',Education:'শিক্ষা',Scholarship:'স্কলারশিপ',Bangladesh:'বাংলাদেশ',AI:'এআই',Business:'ব্যবসা',Tech:'প্রযুক্তি',
+bn:{Admission:'🎓 ভর্তি',All:'সব',Education:'শিক্ষা',Scholarship:'স্কলারশিপ',Bangladesh:'বাংলাদেশ',AI:'এআই',Business:'ব্যবসা',Tech:'প্রযুক্তি',IntlGK:'🌍 আন্তর্জাতিক GK',NatGK:'🇧🇩 জাতীয় GK',BDGK:'জাতীয় GK',gkw:'দৈনিক খবরের শিরোনাম থেকে এআই-বানানো কুইজ কার্ড। মুখস্থের আগে যাচাই করুন।',gkn:'এখনো GK কার্ড নেই। পরের GK রানের পর আসবে।',cards:'টি কার্ড',show:'উত্তর দেখুন',latest:'সর্বশেষ শিরোনাম',
  title:'🎓 ভর্তি ও বিশ্বের খবর',search:'শিরোনাম খুঁজুন…',wait:'প্রথম আপডেটের অপেক্ষায়…',upd:'আপডেট',auto:'নিজে থেকেই রিফ্রেশ হয়',none:'এখনো কোনো খবর নেই।',
  mor:'☀️ সকালের সারাংশ',ngt:'🌙 রাতের সারাংশ',m:' মিনিট আগে',h:' ঘণ্টা আগে',d:' দিন আগে',btn:'English',wa:'📲 হোয়াটসঅ্যাপ',in:'শুরু হতে বাকি',left:'শেষ হতে বাকি',done:'শেষ',next:'পরের ইভেন্ট',
  u:['দিন','ঘণ্টা','মিনিট','সেকেন্ড'],confirmed:'নিশ্চিত',probable:'সম্ভাব্য',tba:'তারিখ ঘোষণা হয়নি',warn:'তারিখগুলো সংবাদ থেকে নেওয়া। সবসময় বিশ্ববিদ্যালয়ের অফিসিয়াল ওয়েবসাইটে যাচাই করুন।'}};
-let lang=localStorage.getItem('lang')||'en',topic='Admission',items=[],q='',news={},br={},adm=[];
+let lang=localStorage.getItem('lang')||'en',topic='Admission',items=[],q='',news={},br={},adm=[],gk={days:[]};
 const bd=n=>lang==='bn'?String(n).replace(/\d/g,x=>'০১২৩৪৫৬৭৮৯'[x]):String(n);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const ago=d=>{const m=Math.max(0,(Date.now()-new Date(d))/60000),t=L[lang];return bd(m<60?Math.floor(m)+t.m:m<1440?Math.floor(m/60)+t.h:Math.floor(m/1440)+t.d)};
@@ -98,9 +99,17 @@ function renderNext(){const t=L[lang],all=[];
 setInterval(()=>{let re=false;document.querySelectorAll('.cd').forEach(el=>{const t=+el.dataset.t;if(t-Date.now()<=0)re=true;else el.innerHTML=cdHtml(t)});if(re){renderNext();if(topic==='Admission')renderAdm()}},1000);
 /* ---- news ---- */
 function renderTabs(){document.getElementById('tabs').innerHTML=TOP.map(x=>`<button class="${x===topic?'on':''}" onclick="topic='${x}';renderTabs();renderMain()">${L[lang][x]}</button>`).join('')}
-function renderList(){const f=items.filter(i=>(topic==='All'||i.topic===topic)&&(!q||(i.title+i.snippet).toLowerCase().includes(q)));
- document.getElementById('list').innerHTML=f.slice(0,150).map(i=>`<div class="card item" style="--c:${COL[i.topic]||'#888'}"><a href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.title)}</a><div class="meta"><span class="tag">${esc(L[lang][i.topic]||i.topic)}</span><span>${esc(i.source)}</span><span>· ${ago(i.date)}</span></div>${i.snippet?`<div class="snip">${esc(i.snippet.slice(0,160))}…</div>`:''}</div>`).join('')||`<div class="card">${L[lang].none}</div>`}
-function renderMain(){const isA=topic==='Admission';document.getElementById('q').style.display=isA?'none':'block';isA?renderAdm():renderList()}
+function newsCard(i){return `<div class="card item" style="--c:${COL[i.topic]||'#888'}"><a href="${esc(i.link)}" target="_blank" rel="noopener">${esc(i.title)}</a><div class="meta"><span class="tag">${esc(L[lang][i.topic]||i.topic)}</span><span>${esc(i.source)}</span><span>· ${ago(i.date)}</span></div>${i.snippet?`<div class="snip">${esc(i.snippet.slice(0,160))}…</div>`:''}</div>`}
+function renderList(){const gkT=['IntlGK','BDGK'],f=items.filter(i=>(topic==='All'?!gkT.includes(i.topic):i.topic===topic)&&(!q||(i.title+i.snippet).toLowerCase().includes(q)));
+ document.getElementById('list').innerHTML=f.slice(0,150).map(newsCard).join('')||`<div class="card">${L[lang].none}</div>`}
+function renderGK(){const isI=topic==='IntlGK',key=isI?'intl':'national',nt=isI?'IntlGK':'BDGK',t=L[lang];
+ const days=(gk.days||[]).filter(d=>(d[key]||[]).length);
+ let h=`<div class="note">${t.gkw}</div>`;
+ if(!days.length)h+=`<div class="card">${t.gkn}</div>`;
+ days.forEach((d,i)=>{h+=`<details class="card" ${i===0?'open':''}><summary><b>${fmt(d.date+'T12:00:00+06:00',false)}</b> · ${bd(d[key].length)} ${t.cards}</summary>`+d[key].map(c=>`<div class="qa"><div class="q">${esc(lang==='bn'&&c.qBn?c.qBn:c.q)}</div>${c.tag?`<span class="chip tba">${esc(c.tag)}</span>`:''}<details class="ans"><summary>${t.show}</summary><div class="a">${esc(lang==='bn'&&c.aBn?c.aBn:c.a)}</div></details></div>`).join('')+'</details>'});
+ h+=`<h3 class="sec">${t.latest}</h3>`+items.filter(i=>i.topic===nt).slice(0,60).map(newsCard).join('');
+ document.getElementById('list').innerHTML=h}
+function renderMain(){const isA=topic==='Admission',isG=topic==='IntlGK'||topic==='NatGK';document.getElementById('q').style.display=(isA||isG)?'none':'block';isA?renderAdm():isG?renderGK():renderList()}
 function renderBriefs(){if(!br.m)return;const t=L[lang],pick=b=>(lang==='bn'&&b.text_bn)||b.text||b.text_bn||'';
  const c=(b,l)=>`<details class="card brief"><summary>${l}${b.generated?' · '+ago(b.generated):''}</summary>${md(pick(b))}</details>`;
  const newer=new Date(br.m.generated||0)>new Date(br.n.generated||0);
@@ -120,6 +129,7 @@ async function j(p){const r=await fetch(p+'?t='+Date.now());return r.json()}
 async function load(){
  try{news=await j('data/news.json');items=news.items||[]}catch(e){}
  try{adm=await j('data/admissions.json')}catch(e){}
+ try{gk=await j('data/gk.json')}catch(e){}
  try{const[m,n]=await Promise.all([j('data/brief-morning.json'),j('data/brief-night.json')]);br={m,n}}catch(e){}
  renderAll()}
 document.getElementById('q').oninput=e=>{q=e.target.value.toLowerCase();renderList()};
