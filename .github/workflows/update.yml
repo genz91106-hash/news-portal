@@ -3,11 +3,13 @@ on:
   schedule:
     - cron: "*/15 * * * *"
     - cron: "0 0 * * *"
+    - cron: "0 6 * * *"
+    - cron: "0 12 * * *"
     - cron: "0 16 * * *"
   workflow_dispatch:
     inputs:
       brief:
-        description: "Make a brief now (morning / night / none)"
+        description: "morning / night / gk / none"
         default: "none"
 permissions:
   contents: write
@@ -30,6 +32,9 @@ jobs:
           [ "${{ github.event.schedule }}" = "0 0 * * *" ] && B=morning
           [ "${{ github.event.schedule }}" = "0 16 * * *" ] && B=night
           if [ "$B" = "morning" ] || [ "$B" = "night" ]; then node scripts/summarize.mjs $B || true; fi
+          case "${{ github.event.schedule }}" in "0 0 * * *"|"0 6 * * *"|"0 12 * * *"|"0 16 * * *") B=gk;; esac
+          [ "${{ github.event.inputs.brief }}" = "gk" ] && B=gk
+          if [ "$B" = "gk" ] || [ "$B" = "morning" ] || [ "$B" = "night" ]; then node scripts/gk.mjs || true; fi
       - name: Save
         run: |
           git config user.name "news-bot"; git config user.email "bot@users.noreply.github.com"
