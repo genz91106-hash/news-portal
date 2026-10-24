@@ -1,7 +1,5 @@
 import fs from 'node:fs';
-const key = process.env.GEMINI_API_KEY;
-if (!key) { console.log('No GEMINI_API_KEY'); process.exit(1); }
-const model = process.env.GEMINI_MODEL || 'gemini-2.5-flash';
+import { ask } from './ai.mjs';
 const { items } = JSON.parse(fs.readFileSync('data/news.json','utf8'));
 const pool = t => items.filter(i => i.topic === t && Date.now() - new Date(i.date) < 30*3600e3).slice(0,60);
 const fmt = a => a.map((i,n) => `${n+1}. ${i.title} (${i.source}) ${i.snippet||''}`).join('\n');
@@ -14,11 +12,7 @@ Each card: {"q": English question, "a": short exact English answer, "qBn": same 
 Return ONLY a JSON array.
 
 ${fmt(list)}`;
-  const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${key}`, {
-    method: 'POST', headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { responseMimeType: 'application/json' } }) });
-  const j = await r.json();
-  const t = j.candidates?.[0]?.content?.parts?.map(p => p.text).join('') || '';
+  const t = await ask(prompt, true);
   try { const a = JSON.parse(t.replace(/```json|```/g,'').trim()); return Array.isArray(a) ? a.filter(c => c.q && c.a).slice(0,12) : []; }
   catch (e) { console.log('parse fail', label, t.slice(0,200)); return []; }
 }
